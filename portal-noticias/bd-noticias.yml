@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: db-noticias
   labels:
-    app: db-noticias
+    app: bd-noticias
 spec:
   containers:
   - name: container-db-noticias
@@ -12,4 +12,4 @@ spec:
       - containerPort: 3306
     envFrom:
       - configMapRef:
-          name: bd-noticias-cm
+          name: db-noticias-cm
