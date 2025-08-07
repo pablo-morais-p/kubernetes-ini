@@ -18,7 +18,7 @@ spec:
                 port:
                   number: 9000
 
-          - path: /teste(/|$)(.*) 
+          - path: /pgadmin(/|$)(.*) 
             pathType: ImplementationSpecific 
             backend:
               service:
