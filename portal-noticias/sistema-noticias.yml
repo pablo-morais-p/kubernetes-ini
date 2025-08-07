@@ -1,15 +1,23 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: sistema-noticias
-  labels:
-    app: sistema-noticias
+  name: deploy-sistema-noticias
 spec:
-  containers:
-  - name: container-sistema-noticias
-    image: aluracursos/sistema-noticias:1
-    ports:
-      - containerPort: 80
-    envFrom:
-      - configMapRef:
-          name: sistema-noticias-cm
+  template:
+    metadata:
+      name: container-sistema-noticias
+      labels:
+        app: sistema-noticias
+    spec:
+      containers:
+      - name: container-sistema-noticias
+        image: aluracursos/sistema-noticias:1
+        ports:
+          - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: sistema-noticias-cm
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sistema-noticias

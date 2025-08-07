@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-api-davi
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api-davi.teste
+      http:
+        paths:
+          - path: /api(/|$)(.*) 
+            pathType: ImplementationSpecific 
+            backend:
+              service:
+                name: svc-pod-1
+                port:
+                  number: 9000
+
+          - path: /teste(/|$)(.*) 
+            pathType: ImplementationSpecific 
+            backend:
+              service:
+                name: svc-pod-2
+                port:
+                  number: 9000

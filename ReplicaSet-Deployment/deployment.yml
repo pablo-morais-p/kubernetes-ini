@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-nginx
-  labels:
-    app: deployment-nginx
 spec:
   template:
     metadata:
