@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-api-davi
+data:
+  URLDB: "jdbc:postgresql://svc-api-davi:5432/bancoapp2"
+  PROFILE: "dev" 

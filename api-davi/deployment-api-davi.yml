@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-davi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-davi
+  template:
+    metadata:
+      labels:
+        app: api-davi
+    spec:
+      containers:
+      - name: container-api-davi
+        image: api-davi:1.0
+        ports:
+          - containerPort: 8081
+        envFrom:
+          - configMapRef:
+              name: cm-api-davi

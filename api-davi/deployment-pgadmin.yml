@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-pgadmin
+  template:
+    metadata:
+      labels:
+        app: pod-pgadmin
+    spec:
+      containers:
+      - name: container-pgadmin
+        image: elestio/pgadmin
+        ports:
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: cm-pgadmin
+

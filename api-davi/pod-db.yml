@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod-db-api-davi
+  labels:
+    app: pod-db-api-davi
+spec:
+  containers:
+    - name: container-pod-db-api-davi
+      image: postgres:17.5-alpine3.22
+      ports:
+        - containerPort: 5432
+      envFrom:
+      - secretRef:
+          name: secret-db
