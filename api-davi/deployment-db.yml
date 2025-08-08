@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-db-api-davi
+  template:
+    metadata: 
+      name: pod-db-api-davi
+      labels:
+        app: pod-db-api-davi
+    spec:
+      containers:
+        - name: container-db
+          image: postgres:17.5-alpine3.22
+          ports:
+            - containerPort: 5432
+          envFrom:
+          - secretRef:
+              name: secret-db
