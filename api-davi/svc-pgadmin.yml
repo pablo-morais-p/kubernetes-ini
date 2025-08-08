@@ -3,8 +3,10 @@ kind: Service
 metadata:
   name: svc-pgadmin
 spec:
+  type: ClusterIP
   selector:
     app: pod-pgadmin
   ports:
   - port: 9001
     targetPort: 8080
+    #nodePort: 30001 apenas para teste sem ingress
