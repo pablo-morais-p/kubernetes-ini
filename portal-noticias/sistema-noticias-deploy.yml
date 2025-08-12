@@ -5,7 +5,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: container-sistema-noticias
+      name: sistema-noticias
       labels:
         app: sistema-noticias
     spec:
