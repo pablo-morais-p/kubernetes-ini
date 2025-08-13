@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: pod-pgadmin
+    app: pgadmin
   ports:
   - port: 9001
     targetPort: 8080
