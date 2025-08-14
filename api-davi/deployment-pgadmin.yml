@@ -14,10 +14,19 @@ spec:
     spec:
       containers:
       - name: container-pgadmin
-        image: elestio/pgadmin
+        image: elestio/pgadmin #dpage/pgadmin
         ports:
         - containerPort: 8080
         envFrom:
-          - configMapRef:
-              name: cm-pgadmin
-
+          - secretRef:
+              name: secret-pgadmin
+        volumeMounts:
+        - name: vl-config-dbservers
+          mountPath: /pgadmin4/servers
+      volumes:
+      - name: vl-config-dbservers
+        secret:
+          secretName: secrets-servers-db-pgadmin
+          items:
+            - key: servers.json
+              path: servers.json

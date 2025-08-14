@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-pod-db
+  name: svc-db
 spec:
   type: ClusterIP
   selector:
-    app: pod-db-api-davi
+    app: db-api-davi
   ports:
   - port: 5432

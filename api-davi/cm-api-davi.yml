@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: cm-api-davi
 data:
-  URLDB: "jdbc:postgresql://svc-pod-db:5432/bancoapp2"
+  URLDB: "jdbc:postgresql://svc-db:5432/bancoapp2"
   PROFILE: "prod" 

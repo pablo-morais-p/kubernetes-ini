@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pod-db-api-davi
+      app: db-api-davi
   template:
     metadata: 
-      name: pod-db-api-davi
+      name: db-api-davi
       labels:
-        app: pod-db-api-davi
+        app: db-api-davi
     spec:
       containers:
         - name: container-db
